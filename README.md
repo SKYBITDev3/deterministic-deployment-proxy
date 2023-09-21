@@ -3,8 +3,8 @@ This is a proxy contract that can be deployed to any chain at the same address, 
 
 ## Usage
 ```bash
-npm install
-npm run build
+yarn install
+yarn build
 ./scripts/test.sh
 ```
 
@@ -18,25 +18,19 @@ Between the use of CREATE2 opcode and the one-time-use-account for the deployer,
 
 ----
 
-## Latest Outputs
-
-**Note:** as of last readme update; don't trust these to be latest!
-
-It is known to have been deployed to: [Ropsten test-net](https://ropsten.etherscan.io/tx/0xeddf9e61fb9d8f5111840daef55e5fde0041f5702856532cdbb5a02998033d26)
-
 ### Proxy Address
 ```
-0x4e59b44847b379578588920ca78fbf26c0b4956c
+0x81ff04d520c0bf78f3cefdb2bb2c09cf37258836
 ```
 
 ### Deployment Transaction
 ```
-0xf8a58085174876e800830186a08080b853604580600e600039806000f350fe7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf31ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222
+0xf8848085174876e800830186a08080b3602980600a5f395ff3fe5f338152803560205260408120601f19360180602084378234f5908115602657526014600cf35b80fd1ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222
 ```
 
 ### Deployment Signer Address
 ```
-0x3fab184622dc19b6109349b94811493bf2a45362
+54b4fe55397a67190f2470ad0bfa2d10af0e319c
 ```
 
 ### Deployment Gas Price
@@ -49,4 +43,4 @@ It is known to have been deployed to: [Ropsten test-net](https://ropsten.ethersc
 100000
 ```
 
-**Note:** The actual gas used is 68131, but that can change if the cost of opcodes changes.  To avoid having to move the proxy to a different address, we opted to give excess gas.  Given the gas price, this may result in notable expenses, but since this only needs to be deployed once per chain that is acceptable.
+**Note:** The actual gas used is 62,048, but that can change if the cost of opcodes changes.  To avoid having to move the proxy to a different address, we opted to give excess gas.  Given the gas price, this may result in notable expenses, but since this only needs to be deployed once per chain that is acceptable.

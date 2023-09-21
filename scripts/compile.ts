@@ -1,6 +1,6 @@
 import { promises as filesystem } from 'fs'
 import * as path from 'path'
-import { CompilerOutput, CompilerInput, compileStandardWrapper, CompilerOutputContract } from 'solc'
+import { CompilerOutput, CompilerInput, compile, CompilerOutputContract, version } from 'solc'
 import { rlpEncode } from '@zoltu/rlp-encoder'
 import { keccak256 } from 'js-sha3'
 import { ec as EllipticCurve } from 'elliptic'
@@ -9,7 +9,7 @@ const secp256k1 = new EllipticCurve('secp256k1')
 export async function ensureDirectoryExists(absoluteDirectoryPath: string) {
 	try {
 		await filesystem.mkdir(absoluteDirectoryPath)
-	} catch (error) {
+	} catch (error: any) {
 		if (error.code === 'EEXIST') return
 		throw error
 	}
@@ -47,8 +47,14 @@ async function compileContracts(): Promise<CompilerOutput> {
 			},
 		},
 	}
+
+	// compilerInput.settings.evmVersion = 'paris'
+	compilerInput.settings.evmVersion = 'shanghai' // downgrade to `paris` if you encounter 'invalid opcode' error
+
+	console.log(`solc version & settings: ${version()}, ${JSON.stringify(compilerInput.settings)}`)
+
 	const compilerInputJson = JSON.stringify(compilerInput)
-	const compilerOutputJson = compileStandardWrapper(compilerInputJson)
+	const compilerOutputJson = compile(compilerInputJson)
 	const compilerOutput = JSON.parse(compilerOutputJson) as CompilerOutput
 	const errors = compilerOutput.errors
 	if (errors) {
