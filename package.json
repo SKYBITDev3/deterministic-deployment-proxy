@@ -1,11 +1,11 @@
 {
-	"name": "@zoltu/deterministic-deployment-proxy",
+	"name": "@SKYBITDev3/deterministic-deployment-proxy",
 	"description": "An Ethereum proxy contract that can be used for deploying contracts to a deterministic address on any chain.",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"license": "Unlicense",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:Zoltu/deterministic-deployment-proxy.git"
+		"url": "git@github.com:SKYBITDev3/deterministic-deployment-proxy.git"
 	},
 	"scripts": {
 		"build": "ts-node scripts/compile.ts"

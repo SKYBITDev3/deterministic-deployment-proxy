@@ -1,3 +1,13 @@
+# Fork
+This is a fork of [Arachnid/deterministic-deployment-proxy](https://github.com/Arachnid/deterministic-deployment-proxy) with improved security by hashing user's address with salt in the factory contract itself.
+
+All npm dependencies have been updated to latest versions.
+
+If you encounter 'invalid opcode' error then downgrade the EVM version from `shanghai` to `paris` in `scripts/compile.ts`:
+```
+compilerInput.settings.evmVersion = 'paris'
+```
+
 # Deterministic Deployment Proxy
 This is a proxy contract that can be deployed to any chain at the same address, and can then in turn deploy any contract at a deterministic location using CREATE2.  To use, first deploy the contract using the one-time-account transaction specified in `output/deployment.json` (or grab last known good from bottom of readme), then submit a transaction `to` the address specified in `output/deployment.json` (or grab last known good from bottom of readme). The data should be the 32 byte 'salt' followed by your init code.
 
