@@ -32,18 +32,33 @@ Between the use of CREATE2 opcode and the one-time-use-account for the deployer,
 ----
 
 ### Proxy Address
+#### If `evmVersion` = `shanghai`
 ```
-0x81ff04d520c0bf78f3cefdb2bb2c09cf37258836
+0xaf45f86eb0bbf0536fa770b699b806f22496d875
+```
+#### If `evmVersion` = `paris`
+```
+0xbf53a2647649ccd539e8f7e6864447bb7fb14ada
 ```
 
 ### Deployment Transaction
+#### If `evmVersion` = `shanghai`
 ```
-0xf8848085174876e800830186a08080b3602980600a5f395ff3fe5f338152803560205260408120601f19360180602084378234f5908115602657526014600cf35b80fd1ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222
+0xf8858085174876e800830186a08080b4602a80600a5f395ff3fe5f33815280356020526034600c20601f19360180602084378234f5908115602757526014600cf35b80fd1ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222
+```
+#### If `evmVersion` = `paris`
+```
+0xf8888085174876e800830186a08080b7602b80600c6000396000f3fe600033815280356020526034600c20601f19360180602084378234f5908115602857526014600cf35b80fd1ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222
 ```
 
 ### Deployment Signer Address
+#### If `evmVersion` = `shanghai`
 ```
-54b4fe55397a67190f2470ad0bfa2d10af0e319c
+0x790bec4474aff8686ab85225584988f9622efff5
+```
+#### If `evmVersion` = `paris`
+```
+0x3c1af275c75fb2d5556cf85bcfed36bfc2552890
 ```
 
 ### Deployment Gas Price
@@ -56,4 +71,4 @@ Between the use of CREATE2 opcode and the one-time-use-account for the deployer,
 100000
 ```
 
-**Note:** The actual gas used is 62,048, but that can change if the cost of opcodes changes.  To avoid having to move the proxy to a different address, we opted to give excess gas.  Given the gas price, this may result in notable expenses, but since this only needs to be deployed once per chain that is acceptable.
+**Note:** The actual gas used is 62,264, but that can change if the cost of opcodes changes.  To avoid having to move the proxy to a different address, we opted to give excess gas.  Given the gas price, this may result in notable expenses, but since this only needs to be deployed once per chain that is acceptable.
